@@ -1,0 +1,11 @@
+
+defaultNote:
+  title: 'The default note'
+  text: 'This is the default note for the demo application'
+
+assets:
+  overrides:
+    /: ../frontend/
+
+server:
+  rootPath: '/api/*'

@@ -1,0 +1,16 @@
+logs/*
+!.gitkeep
+node_modules/
+bower_components/
+tmp
+.DS_Store
+.idea/build/
+build/
+.idea/
+.gradle
+/bin/
+./classpath
+./project
+.project
+.classpath
+.settings/
