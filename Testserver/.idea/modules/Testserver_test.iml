@@ -11,6 +11,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Testserver_main" />
     <orderEntry type="library" name="Gradle: io.dropwizard:dropwizard-core:1.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: io.dropwizard:dropwizard-assets:1.0.0" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.11" level="project" />
     <orderEntry type="library" name="Gradle: io.dropwizard:dropwizard-util:1.0.0" level="project" />
     <orderEntry type="library" name="Gradle: io.dropwizard:dropwizard-jackson:1.0.0" level="project" />

@@ -17,9 +17,12 @@ public class DummyServer extends Application<Configuration>{
     @Override
     public void run(Configuration configuration, Environment environment) throws Exception {
         environment.jersey().register(DummyResource.class);
+        myConfigurationBootstrap.addBundle(new AssetsBundle("/assets", "/", "index.html"));
     }
 
     public static void main(String[] args) throws Exception{
         new DummyServer().run(args);
     }
+
+
 }
