@@ -1,7 +1,0 @@
-
-assets:
-  overrides:
-    /: ../frontend/login/
-
-server:
-  rootPath: '/api/*'
