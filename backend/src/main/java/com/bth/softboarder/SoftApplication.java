@@ -6,6 +6,8 @@ package com.bth.softboarder;
 
 
 import com.bth.softboarder.db.UserDAO;
+import com.bth.softboarder.resources.OrderResource;
+import com.bth.softboarder.db.OrderDAO;
 import com.bth.softboarder.resources.UserResource;
 import io.dropwizard.Application;
 import io.dropwizard.jdbi.DBIFactory;
@@ -20,8 +22,6 @@ import java.sql.SQLException;
 //import com.softhouse.onboarder.db.InventoryDAO;
 //import com.softhouse.onboarder.resources.OrderResource;
 //import com.softhouse.onboarder.resources.InventoryResource;
-
-//import com.softhouse.process.FilterProcess;
 
 
 public class SoftApplication extends Application<SoftConfiguration> {
@@ -47,13 +47,15 @@ public class SoftApplication extends Application<SoftConfiguration> {
         myH2adminGUI.start();
 
         final UserDAO userDAO = jdbi.onDemand(UserDAO.class);
+        final OrderDAO orderDAO = jdbi.onDemand(OrderDAO.class);
         //final OrderDAO orderDAO = jdbi.onDemand(OrdersDAO.class);
         //final InventoryDAO userDAO = jdbi.onDemand(InventoryDAO.class);
-        //environment.jersey().setUrlPattern("/api/*");
+        environment.jersey().setUrlPattern("/api/*");
+
         userDAO.createUsersTable();
+        orderDAO.createOrdersTable();
         //orderDAO.createOrderTable();
         //inventoryDAO.createInventoryTable();
-
 
         //final FilterProcess filterProcess = new FilterProcess(filterDAO);
 
@@ -61,8 +63,6 @@ public class SoftApplication extends Application<SoftConfiguration> {
 
         //final UserResource userResource = new UserResource(filterProcess);
         //final OrderResource orderResource = new AudioResource();
-
-        ;
         //final InventoryResource userResource = new InventoryResource(userDAO);
 
         //final TemplateHealthCheck healthCheck = new TemplateHealthCheck(configuration.getTemplate());
@@ -70,6 +70,7 @@ public class SoftApplication extends Application<SoftConfiguration> {
 
         //environment.jersey().register(onboarderResource);
         environment.jersey().register(new UserResource(userDAO));
+        environment.jersey().register(new OrderResource(orderDAO));
         //environment.jersey().register(orderResource);
         //environment.jersey().register(inventoryResource);
     }
@@ -79,20 +80,5 @@ public class SoftApplication extends Application<SoftConfiguration> {
         // nothing to do yet
         //bootstrap.addBundle(new ConfiguredAssetsBundle("/assets/", "/", "index.html"));
     }
-
-    /*private void configureCrossOriginFilter(HelloWorldConfiguration configuration, Environment environment) {
-        String[] allowedOrigins = configuration.getAllowedOrigins();
-        if (allowedOrigins == null || allowedOrigins.length == 0) {
-            return;
-        }
-
-        Dynamic filter = environment.servlets().addFilter("CrossOriginFilter", CrossOriginFilter.class);
-        filter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, API_URL_PATTERN);
-        filter.setInitParameter(CrossOriginFilter.ALLOWED_ORIGINS_PARAM, Joiner.on(',').join(allowedOrigins));
-        filter.setInitParameter(CrossOriginFilter.ALLOWED_HEADERS_PARAM,
-                "X-Requested-With,Content-Type,Accept,Accept-Language,Origin,Authorization");
-        filter.setInitParameter(CrossOriginFilter.ALLOWED_METHODS_PARAM, "GET,POST,PUT,DELETE");
-        filter.setInitParameter(CrossOriginFilter.ALLOW_CREDENTIALS_PARAM, "true");
-    }*/
 
 }
