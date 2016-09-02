@@ -16,7 +16,7 @@ database:
   user: sa
 
   # the password
-  password:
+  password: sa
 
   # the JDBC URL
   url: jdbc:h2:~/test

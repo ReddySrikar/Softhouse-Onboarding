@@ -9,6 +9,8 @@ import com.google.common.base.Preconditions;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
+import java.util.List;
+
 /**
  * Created by Srikar on 31-08-2016.
  */
@@ -27,15 +29,15 @@ public class UserResource {
 
     @GET
     @Path("/all/")
-    public Users getBy() {
+    public List<Users> getBy() {
         return userDao.getBy();
     }
 
-    @POST
-    @Path("/name/{uname}")
-    public Users getBy(@PathParam("uname") String username) {
-        return userDao.getBy(username);
-    }
+    //@POST
+    //@Path("/name/{uname}")
+    //public Users getBy(@PathParam("uname") String username) {
+      //  return userDao.getBy(username);
+    //}
 
     @GET
     @Path("/{id}")
