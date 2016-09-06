@@ -90,5 +90,16 @@ public class Users {
     public void setConfirm_password(String confirm_password) {
         this.confirm_password = confirm_password;
     }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", emailid='" + emailid + '\'' +
+                ", password='" + password + '\'' +
+                ", confirm_password='" + confirm_password + '\'' +
+                '}';
+    }
 }
 

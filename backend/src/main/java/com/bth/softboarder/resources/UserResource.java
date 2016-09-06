@@ -6,15 +6,14 @@ import com.bth.softboarder.entities.Users;
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Preconditions;
 
-import javax.validation.constraints.Null;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.Response;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by Srikar on 31-08-2016.
@@ -40,7 +39,7 @@ public class UserResource {
 
     @GET
     @Path("/{username}/{password}")
-    public Users getBy(@PathParam("username") String username, @PathParam("password") String password)
+    public Response getBy(@PathParam("username") String username, @PathParam("password") String password)
     {
         //String result = "login successful";
         //return Response.status(200)
@@ -52,7 +51,24 @@ public class UserResource {
         else {
         return "Login Successful";
         } */
-       return userDao.getBy(username,password);
+
+        Users users = userDao.getBy(username,password);
+        if(users != null) {
+            String result = "login successful";
+            return Response.status(200)
+                  .entity(result)
+                .build();
+        }
+
+        else {
+            //System.out.println(users);
+           // return users;
+            String result = "login failed";
+            return Response.status(200)
+                    .entity(result)
+                    .build();
+        }
+        //return null;
     }
 
     //@POST
