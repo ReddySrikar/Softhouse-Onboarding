@@ -28,6 +28,12 @@ public class Users {
         this.emailid = emailid;
     }
 
+    public Users(String username, String password) {
+        super();
+        this.username = username;
+        this.password = password;
+    }
+
     public Users(int id, String username, String emailid, String password) {
         super();
         this.id = id;

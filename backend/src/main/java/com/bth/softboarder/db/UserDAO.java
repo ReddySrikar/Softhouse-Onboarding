@@ -28,6 +28,10 @@ public interface UserDAO {
     //@SqlQuery("Select * from App_Filter_USERS where username = :username;")
     //public Users getBy(@Bind("username") String username);
 
-    @SqlQuery("select id,username,emailid from USERS;")
+    //@SqlQuery("select id,username,emailid from USERS;")
+    @SqlQuery("select * from USERS where username = :username AND password= :password;")
+    public Users getBy(@Bind("username") String username, @Bind("password") String password);
+
+    @SqlQuery("SELECT * FROM USERS;")
     public List<Users> getBy();
 }
