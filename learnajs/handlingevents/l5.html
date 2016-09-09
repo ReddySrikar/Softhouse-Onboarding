@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!--toensure proper rendering and touch zooming-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller = "myController">
+<table>
+    <tr>
+        <th>Name</th>
+        <th>likes</th>
+        <th>dislikes</th>
+        <th>opinion</th>
+    </tr>
+    <tr ng-repeat="technology in technologies">
+        <td>{{technology.name}}</td>
+        <td>{{technology.likes}}</td>
+        <td>{{technology.dislikes}}</td>
+        <td>
+            <input type="button" value="likes" ng-click="incrementLikes(technology)"/>
+            <input type="button" value="dislikes" ng-click="decrementDislikes(technology)"/>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

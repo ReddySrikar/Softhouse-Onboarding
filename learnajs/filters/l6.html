@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!--toensure proper rendering and touch zooming-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>
+        table {
+            border: double;
+        }
+        tr {
+            border: double;
+        }
+        td {
+            border: double;
+        }
+
+    </style>
+</head>
+
+<body ng-controller = "myController">
+<input type="number" step="1" min="0" max="5" ng-model="rowLimit"/>
+<br>
+<br>
+<table>
+    <tr>
+        <th>name:</th>
+        <th>DOB</th>
+        <th>gender</th>
+        <th>salary(numbers)</th>
+        <th>salary(currency)</th>
+    </tr>
+    <tr ng-repeat="employee in employee | limitTo:rowLimit:2">
+        <td>{{employee.name | uppercase}}</td>
+        <td>{{employee.dateofbirth | date:'yyyy/mm/dd'}}</td>
+        <td>{{employee.gender | lowercase}}</td>
+        <td>{{employee.salary | number}}</td>
+        <td>{{employee.salary | currency:'#':1}}</td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html data-ng-app="app">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!--toensure proper rendering and touch zooming-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="angular-route.min.js"></script>
+</head>
+
+<body data-ng-controller = "myController">
+
+<ul>
+    <h2>Name And Age of programmers in the local area:</h2>
+
+    <li ng-repeat="person in persons | filter:globalSearch">
+        {{person.Name + ':'+person.Age + ':'+person.favColor}}
+    </li>
+</ul>
+<div id="searchBoxes">
+    globalsearch:<input type="text" ng-model="globalSearch.$">
+    <br>
+    namesearch:<input type="text" ng-model="globalSearch.Name">
+    <br>
+    age search:<input type="text" ng-model="globalSearch.Age">
+    <br>
+    color search:<input type="text" ng-model="globalSearch.favColor">
+    <br>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!--toensure proper rendering and touch zooming-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller = "myController">
+<table style="width:100%">
+   <tr>
+       <td><h3>first name</h3></td>
+       <td><h3>last name</h3></td>
+       <td><h3>gender</h3></td>
+       <td><h3>sex</h3></td>
+
+   </tr>
+    <tr ng-repeat="employees in employees">
+        <td>{{employees.firstName}}</td>
+        <td>{{employees.lastName}}</td>
+        <td>{{employees.gender}}</td>
+        <td>{{employees.age}}</td>
+    </tr>
+
+</table>
+</body>
+</html>
