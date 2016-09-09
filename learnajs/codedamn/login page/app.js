@@ -22,15 +22,26 @@ app.config(function($routeProvider){
             redirectTo:'/'
         });
 });
-app.controller("myController",function($scope,$location,$rootScope){
-    $scope.submit = function(){
 
-        if($scope.username =='admin' && $scope.password =='admin'){
-            $rootScope.loggedIn = true;
-            $location.path('/l33');
-        } else{
-            alert('wrong stuff');
-        }
+app.directive('loginPage',function() {
+    return {
+        restrict:'E',
+        templateUrl:'l22.html',
+        controller : function($scope,$location,$rootScope){
+            $scope.submit = function(){
+
+                if($scope.username =='admin' && $scope.password =='admin'){
+                    $rootScope.loggedIn = true;
+                    $location.path('/l33');
+                } else{
+                    alert('wrong stuff');
+                }
+            };
+        },
+controllerAs :'myController'
     };
 });
+
+
+
 
