@@ -15,9 +15,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-/**
- * Created by Srikar on 31-08-2016.
- */
+
 
 
 @Consumes(MediaType.APPLICATION_JSON)

@@ -9,9 +9,7 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 import com.bth.softboarder.entities.Users;
 import java.util.List;
-/**
- * Created by Srikar on 31-08-2016.
- */
+
 
 
 @RegisterMapperFactory(BeanMapperFactory.class)

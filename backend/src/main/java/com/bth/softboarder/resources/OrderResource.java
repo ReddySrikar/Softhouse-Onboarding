@@ -45,6 +45,10 @@ public class OrderResource {
 
     @POST
     @Timed
-    public void insertOrders(Orders orders) { orderDao.insertOrder(orders); }
+    public void insertOrders (Orders orders){
+        orderDao.insertOrders(orders);
+    }
+
+
 
 }

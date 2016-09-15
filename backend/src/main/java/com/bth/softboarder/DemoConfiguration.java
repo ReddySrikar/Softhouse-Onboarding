@@ -7,9 +7,7 @@ import io.dropwizard.Configuration;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-/**
- * Created by Srikar on 30-08-2016.
- */
+
 
 public class DemoConfiguration extends Configuration implements AssetsBundleConfiguration{
 

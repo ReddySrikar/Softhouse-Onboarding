@@ -10,9 +10,7 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 import java.util.List;
 
-/**
- * Created by DIVYA on 01-09-2016.
- */
+
 
 @RegisterMapperFactory(BeanMapperFactory.class)
 public interface OrderDAO {
@@ -21,7 +19,7 @@ public interface OrderDAO {
     public void createOrdersTable();
 
     @SqlUpdate("insert into orders (emp_id,emp_name,model) values (:emp_id,:emp_name,:model);")
-    void insertOrder(@BindBean Orders orders);
+    public void insertOrders(@BindBean Orders orders);
 
     @SqlQuery("SELECT * FROM orders WHERE id = :id;")
     public Orders getBy(@Bind("id") int id);
@@ -31,4 +29,6 @@ public interface OrderDAO {
 
     @SqlQuery("select id,emp_id,emp_name,model from orders;")
     public List<Orders> getBy();
+
+
 }

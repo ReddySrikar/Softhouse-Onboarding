@@ -1,8 +1,6 @@
 package com.bth.softboarder.entities;
 
-/**
- * Created by Srikar on 31-08-2016.
- */
+
 
 
 public class Users {

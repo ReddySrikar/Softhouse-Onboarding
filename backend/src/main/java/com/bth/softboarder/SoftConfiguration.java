@@ -1,8 +1,6 @@
 package com.bth.softboarder;
 
-/**
- * Created by Srikar on 31-08-2016.
- */
+
 
 import com.bazaarvoice.dropwizard.assets.AssetsConfiguration;
 import com.fasterxml.jackson.annotation.JsonProperty;

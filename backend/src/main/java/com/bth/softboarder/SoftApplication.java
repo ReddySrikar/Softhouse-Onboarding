@@ -1,8 +1,6 @@
 package com.bth.softboarder;
 
-/**
- * Created by Srikar on 31-08-2016.
- */
+
 
 
 import com.bth.softboarder.db.UserDAO;
@@ -54,6 +52,7 @@ public class SoftApplication extends Application<SoftConfiguration> {
 
         userDAO.createUsersTable();
         orderDAO.createOrdersTable();
+
         //orderDAO.createOrderTable();
         //inventoryDAO.createInventoryTable();
 

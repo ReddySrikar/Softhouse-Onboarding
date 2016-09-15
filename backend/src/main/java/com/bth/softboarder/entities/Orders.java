@@ -1,8 +1,6 @@
 package com.bth.softboarder.entities;
 
-/**
- * Created by DIVYA on 01-09-2016.
- */
+
 public class Orders {
 
     int id;
@@ -37,6 +35,13 @@ public class Orders {
     public Orders(int id, String emp_id, String emp_name, String model) {
         super();
         this.id = id;
+        this.emp_id = emp_id;
+        this.emp_name = emp_name;
+        this.model = model;
+    }
+
+    public void Orders(String emp_id, String emp_name, String model) {
+
         this.emp_id = emp_id;
         this.emp_name = emp_name;
         this.model = model;

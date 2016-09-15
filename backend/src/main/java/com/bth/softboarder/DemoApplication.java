@@ -6,9 +6,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
 
-/**
- * Created by Srikar on 29-08-2016.
- */
+
 public class DemoApplication extends Application<DemoConfiguration> {
 
     @Override
