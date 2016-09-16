@@ -1,0 +1,22 @@
+
+<footer class="border" >
+    <h1>Contact us :</h1>
+    <div class="container well">
+        <div ng-repeat="contact in contacts">
+            <div class="col-xs-4">
+                <table>
+                    <p>
+                    <h3>{{contact.city}}</h3>
+                    <small>
+                        <br>{{contact.name}}
+                        <br>{{contact.address}}
+                        <br>{{contact.pin}}
+                        <br>{{contact.phonenumber}}
+                        <br>{{contact.mail}}
+                    </small>
+                    </p>
+                </table>
+            </div>
+        </div>
+    </div>
+</footer>
