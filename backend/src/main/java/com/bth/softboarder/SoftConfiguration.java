@@ -5,6 +5,7 @@ package com.bth.softboarder;
  */
 
 import com.bazaarvoice.dropwizard.assets.AssetsConfiguration;
+import com.bazaarvoice.dropwizard.assets.AssetsBundleConfiguration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.internal.NotNull;
 import io.dropwizard.Configuration;
@@ -12,18 +13,7 @@ import io.dropwizard.db.DataSourceFactory;
 
 import javax.validation.Valid;
 
-public class SoftConfiguration extends Configuration{
-
-    @Valid
-    @javax.validation.constraints.NotNull
-    @JsonProperty
-    private final AssetsConfiguration assets = new AssetsConfiguration();
-
-    public AssetsConfiguration getAssetsConfiguration() {
-        return assets;
-    }
-
-
+public class SoftConfiguration extends Configuration implements AssetsBundleConfiguration{
 
     @JsonProperty
     @Valid
@@ -33,6 +23,15 @@ public class SoftConfiguration extends Configuration{
     public DataSourceFactory getDatabaseConfiguration()
     {
         return database;
+    }
+
+    @Valid
+    @NotNull
+    @JsonProperty
+    private final AssetsConfiguration assets = new AssetsConfiguration();
+
+    public AssetsConfiguration getAssetsConfiguration() {
+        return assets;
     }
 
 

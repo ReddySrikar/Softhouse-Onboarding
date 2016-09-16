@@ -4,7 +4,7 @@ package com.bth.softboarder;
  * Created by Srikar on 31-08-2016.
  */
 
-
+import com.bazaarvoice.dropwizard.assets.ConfiguredAssetsBundle;
 import com.bth.softboarder.db.UserDAO;
 import com.bth.softboarder.resources.OrderResource;
 import com.bth.softboarder.db.OrderDAO;
@@ -16,6 +16,12 @@ import io.dropwizard.setup.Environment;
 import org.skife.jdbi.v2.DBI;
 
 import java.sql.SQLException;
+
+import com.bth.softboarder.db.InventoryDAO;
+import com.bth.softboarder.resources.InventoryResource;
+
+import com.bth.softboarder.db.AdminDAO;
+import com.bth.softboarder.resources.AdminResource;
 
 //import com.softhouse.onboarder.resources.OnboarderResource;
 //import com.softhouse.onboarder.db.OrderDAO;
@@ -48,12 +54,20 @@ public class SoftApplication extends Application<SoftConfiguration> {
 
         final UserDAO userDAO = jdbi.onDemand(UserDAO.class);
         final OrderDAO orderDAO = jdbi.onDemand(OrderDAO.class);
+        final InventoryDAO inventoryDAO = jdbi.onDemand(InventoryDAO.class);
+        final AdminDAO adminDAO = jdbi.onDemand(AdminDAO.class);
+
+        ///final AdminDAO adminDAO = jdbi.onDemand(AdminDAO.class);
         //final OrderDAO orderDAO = jdbi.onDemand(OrdersDAO.class);
         //final InventoryDAO userDAO = jdbi.onDemand(InventoryDAO.class);
         environment.jersey().setUrlPattern("/api/*");
 
         userDAO.createUsersTable();
         orderDAO.createOrdersTable();
+        inventoryDAO.createInventorysTable();
+        adminDAO.createAdminsTable();
+       // adminDAO.createAdminsTable();
+
         //orderDAO.createOrderTable();
         //inventoryDAO.createInventoryTable();
 
@@ -71,6 +85,9 @@ public class SoftApplication extends Application<SoftConfiguration> {
         //environment.jersey().register(onboarderResource);
         environment.jersey().register(new UserResource(userDAO));
         environment.jersey().register(new OrderResource(orderDAO));
+        environment.jersey().register(new InventoryResource(inventoryDAO));
+        environment.jersey().register(new AdminResource(adminDAO));
+       // environment.jersey().register(new AdminResource(adminDAO));
         //environment.jersey().register(orderResource);
         //environment.jersey().register(inventoryResource);
     }
@@ -78,7 +95,7 @@ public class SoftApplication extends Application<SoftConfiguration> {
     @Override
     public void initialize(Bootstrap<SoftConfiguration> bootstrap) {
         // nothing to do yet
-        //bootstrap.addBundle(new ConfiguredAssetsBundle("/assets/", "/", "index.html"));
+        bootstrap.addBundle(new ConfiguredAssetsBundle("/assets/", "/", "index2.html"));
     }
 
 }

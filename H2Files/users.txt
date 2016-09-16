@@ -1,0 +1,7 @@
+"ID","USERNAME","EMAILID","PASSWORD","CONFIRM_PASSWORD","STATUS"
+"1","Srikar Reddy","srikar.reddy@gmail.com","Asus Zenphone","Asus Zenbook","admin"
+"2","Harsha GNS","harsha.jns@gmail.com","Apple IPhone","Apple Macbook","user"
+"3","Divya","divya.peddireddy@gmail.com","Mototrola MotoX","HP Notebook","user"
+"4","Gopi Krishna","gopi.krishna@gmail.com","Huawei Honor 6","Dell Inspiron","user"
+"5","Sriram Varma","varma.sriram@gmail.com","varma#123","varma#123","user"
+"6","Tommy","tommy@hi.com","Nokia Lumia","Dell XPS","user"

@@ -42,6 +42,13 @@ public class Orders {
         this.model = model;
     }
 
+    public Orders(String emp_id, String emp_name, String model) {
+        super();
+        this.emp_id = emp_id;
+        this.emp_name = emp_name;
+        this.model = model;
+    }
+
     /**
      * public Users(int id, String emp_id, String emp_name, String model, int flag) {
      super();
@@ -84,4 +91,14 @@ public class Orders {
     public void setModel(String model) {
         this.model = model;
     }
+
+    public String toString() {
+        return "Orders{" +
+                "id=" + id +
+                ", emp_id='" +  emp_id+ '\'' +
+                ", emp_name='" + emp_name + '\'' +
+                ", model='" + model + '\'' +
+                '}';
+    }
+
 }
