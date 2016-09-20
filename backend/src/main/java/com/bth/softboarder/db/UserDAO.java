@@ -20,9 +20,7 @@ public interface UserDAO {
     public void createUsersTable();
 
     @SqlUpdate("insert into USERS (username,emailid,password,confirm_password) values (:username,:emailid,:password,:confirm_password);")
-    static default void insertUser(@BindBean Users users) {
-
-    }
+    public void insertUser(@BindBean Users users);
 
     @SqlQuery("SELECT * FROM USERS WHERE id = :id;")
     Users getBy(@Bind("id") int id);
@@ -38,7 +36,7 @@ public interface UserDAO {
     Users getBy(@Bind("username") String username);
 
     @SqlQuery("select * from USERS where emailid = :emailid")
-    public static Users findUserByEmail(@Bind String emailid);
+    public Users findUserByEmail(@Bind String emailid);
 
     @SqlQuery("SELECT * FROM USERS;")
     public List<Users> getBy();

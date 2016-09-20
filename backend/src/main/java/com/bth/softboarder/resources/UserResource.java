@@ -89,22 +89,14 @@ public class UserResource {
         return userDao.getBy(username);
     }*/
 
-    @POST
-    @Timed
-    public void insertUsers(Users users) {
-        UserDAO.insertUser(users);
-    }
 
     @POST
     @Timed
     public void saveUser(Users users) {
         if (users != null) {
-            if (UserDAO.findUserByEmail(users.getEmailid()) != null) {
-                // USER ALREADY EXISTS CASE
-            } else {
-                UserDAO.insertUser(users);
+                userDao.insertUser(users);
                 throw new WebApplicationException(Response.Status.OK);
-            }
+
         } else {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
