@@ -21,7 +21,7 @@ public interface OrderDAO {
     public void createOrdersTable();
 
     @SqlUpdate("insert into orders (emp_id,emp_name,model) values (:emp_id,:emp_name,:model);")
-    void insertOrder(@BindBean Orders orders);
+    public void insertOrder(@BindBean Orders orders);
 
     @SqlQuery("SELECT * FROM orders WHERE id = :id;")
     public Orders getBy(@Bind("id") int id);

@@ -1,6 +1,7 @@
 package com.bth.softboarder.db;
 
 import com.bth.softboarder.entities.Inventorys;
+import com.bth.softboarder.entities.Users;
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.BindBean;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
@@ -22,4 +23,7 @@ public interface InventoryDAO {
 
     @SqlQuery("select * from inventory;")
     public List<Inventorys> getBy();
+
+    @SqlUpdate("insert into inventory (type,model,quantity) values (:type,:model,:quantity);")
+    public void insertInventory(@BindBean Inventorys inventorys);
 }

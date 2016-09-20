@@ -1,6 +1,7 @@
 package com.bth.softboarder.db;
 
 import com.bth.softboarder.entities.Admins;
+import com.bth.softboarder.entities.Users;
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.BindBean;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
@@ -26,4 +27,8 @@ public interface AdminDAO {
 
     @SqlQuery("select * from USERS where username = :username AND password= :password;")
     public Admins getBy(@Bind("username") String username, @Bind("password") String password);
+
+    //@SqlUpdate("insert into USERS (username,emailid,password,confirm_password) values (:username,:emailid,:password,:confirm_password);")
+    //public void insertAdmin(@BindBean Admins admins);
+
 }

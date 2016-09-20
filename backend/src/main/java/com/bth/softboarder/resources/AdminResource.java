@@ -3,6 +3,7 @@ package com.bth.softboarder.resources;
 import com.bth.softboarder.db.AdminDAO;
 import com.bth.softboarder.entities.Admins;
 import com.bth.softboarder.entities.Users;
+import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Preconditions;
 
 import javax.ws.rs.*;
@@ -58,5 +59,20 @@ public class AdminResource {
         }
         //return null;
     }
+
+    /*
+    @POST
+    @Timed
+    public void saveAdmin(Admins admins) {
+        if (admins != null) {
+            adminDao.insertAdmin(admins);
+            throw new WebApplicationException(Response.Status.OK);
+
+        } else {
+            throw new WebApplicationException(Response.Status.BAD_REQUEST);
+        }
+
+    }
+*/
 
 }
