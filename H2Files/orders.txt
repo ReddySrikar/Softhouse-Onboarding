@@ -1,0 +1,4 @@
+"ID","EMP_ID","EMP_NAME","PHMODEL","LAPMODEL","FLAG"
+"1","1","Srikar","Nokia Lumia","Dell Inspiron","0"
+"2","2","Divya","Apple IPhone","Apple MacBook Air","0"
+"3","3","Harsha","Motorola MotoX","Asus Zenbook","0"

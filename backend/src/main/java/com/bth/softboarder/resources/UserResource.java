@@ -83,10 +83,24 @@ public class UserResource {
         return userDao.getBy(id);
     }
 
+    /*@GET
+    @Path("/{username}")
+    public Users getBy(@PathParam("username") String username) {
+        return userDao.getBy(username);
+    }*/
+
+
     @POST
     @Timed
-    public void insertUsers(Users users) {
-        userDao.insertUser(users);
+    public void saveUser(Users users) {
+        if (users != null) {
+                userDao.insertUser(users);
+                throw new WebApplicationException(Response.Status.OK);
+
+        } else {
+            throw new WebApplicationException(Response.Status.BAD_REQUEST);
+        }
+
     }
 
 }

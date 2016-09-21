@@ -6,6 +6,11 @@ server:
     - type: http
       port: 8080
 
+
+assets:
+  overrides:
+    /: ../frontend
+
 # Database settings.
 database:
 
@@ -16,7 +21,7 @@ database:
   user: sa
 
   # the password
-  password: sa
+  password:
 
   # the JDBC URL
   url: jdbc:h2:~/test

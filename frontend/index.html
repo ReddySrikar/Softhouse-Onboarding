@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="E:\Softhouse\frontend\js\bootstrap.min.js" rel="stylesheet" />
+    <!--<link href="css/main.css" rel="stylesheet" />-->
+
+
+</head>
+<body ng-app="OrdersApp">
+
+<div class="main" ng-controller="MainController">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-sm-offset-7">
+
+                <h2>List of New Orders</h2>
+                <div class="orders" ng-repeat="ord in orderlist">
+                    <div class="day row">
+                        <div class="id col-md-4">
+                            <p>{{ ord.id }}</p>
+                        </div>
+                        <div class="name col-md-1">
+                            <p>{{ ord.username }}</p>
+                        </div>
+                        <div class="high col-md-2">
+                            <p>{{ ord.emailid }}</p>
+                        </div>
+                        <div class="low col-md-2">
+                            <p>{{ day.password }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include the AngularJS library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+
+<!-- Modules -->
+<script src="js/app.js"></script>
+
+<!-- Controllers -->
+<script src="js/controllers/MainController.js"></script>
+
+<!-- Services -->
+<script src="js/services/showorder.js"></script>
+
+<!-- Directives -->
+
+
+</body>
+</html>

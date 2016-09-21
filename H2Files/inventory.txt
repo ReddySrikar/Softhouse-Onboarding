@@ -1,0 +1,7 @@
+"ID","TYPE","MODEL","QUANTITY"
+"1","Laptop","Dell N5110","100"
+"2","Laptop","Dell XPS 13","90"
+"3","Laptop","Mac Book  Air","80"
+"4","Phone","Samsung Note 7","100"
+"5","Phone","Nokia Lumia 520","70"
+"6","Phone","iPhone 7 Plus","80"

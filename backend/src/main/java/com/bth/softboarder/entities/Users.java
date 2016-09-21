@@ -11,6 +11,7 @@ public class Users {
     String emailid;
     String password;
     String confirm_password;
+    String status;
 
     public Users() {
         super();
@@ -20,6 +21,9 @@ public class Users {
         super();
         this.id = id;
     }
+
+
+
 
     public Users(int id, String username, String emailid) {
         super();
@@ -32,6 +36,13 @@ public class Users {
         super();
         this.username = username;
         this.password = password;
+    }
+
+    public Users(String username, String password, String status) {
+        super();
+        this.username = username;
+        this.password = password;
+        this.status = status;
     }
 
     public Users(int id, String username, String emailid, String password) {
