@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <legend>Place an Order</legend>
+        </div>
+        <div class="col-sm-5">
+            <h4>Add Order:</h4>
+            <div class="panel panel-default">
+                <div class="panel-body form-horizontal payment-form">
+
+                    employee ID:<input type="text" ng-model="newcontact"/>
+
+                    <br>
+                    employee Name:<input type="text" ng-model="newdetail"/>
+
+                    <br>
+                    mobile model:<select ng-model="newoption">
+                    <option> Iphone 6S</option>
+                    <option>Sony Experia Z2</option>
+                    <option>Samsung Galaxy S7</option>
+                    <option>HTC Desire 820</option>
+                </select>
+
+                    <br>
+                    laptop model:<select ng-model="newoption1">
+                    <option> Apple Macbook Pro</option>
+                    <option>Dell XPS 13</option>
+                    <option>Asus Zenbook</option>
+                    <option>HP Notebook</option>
+                </select>
+
+                </div>
+                <button ng-click="add()">Add</button>
+                <table>
+                    <tr> <h2>Contacts</h2></tr>
+                    <tr>
+                        <td><h3>Employee ID</h3></td>
+                        <td><h3>Employee Name</h3></td>
+                        <td><h3>mobile model</h3></td>
+                        <td><h3>Laptop model</h3></td>
+                    </tr>
+
+                    <tr>
+                        <td>  <li ng-repeat="contact in contacts"> {{ contact }} </li> </td>
+                        <td> <li ng-repeat="detail in details"> {{ detail }} </li></td>
+                        <td><li ng-repeat="select in singleSelect"> {{ select }} </li></td>
+                        <td><li ng-repeat="select1 in singleSelect1"> {{ select1 }} </li></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+</div>
