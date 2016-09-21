@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!--toensure proper rendering and touch zooming-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css"> </link>
+    <title>Softhouse login</title>
+
+</head>
+<body>
+
+<div class="container" ng-controller="ContactController">
+ <div class="row">
+     <div class="col-sm-12">
+         <legend>Place an Order</legend>
+     </div>
+     <div class="col-sm-5">
+         <h4>Add Order:</h4>
+         <div class="panel panel-default">
+             <div class="panel-body form-horizontal payment-form">
+
+    employee ID:<input type="text" ng-model="newcontact"/>
+    <button ng-click="add()">Add</button>
+    <br>
+    employee Name:<input type="text" ng-model="newdetail"/>
+    <button ng-click="add1()">Add</button>
+    <br>
+    mobile model:<select ng-model="newoption">
+                     <option> Iphone 6S</option>
+                     <option>Sony Experia Z2</option>
+                     <option>Samsung Galaxy S7</option>
+                     <option>HTC Desire 820</option>
+                 </select>
+                     <button ng-click="add2()">Add</button>
+    <br>
+    laptop model:<select ng-model="newoption1">
+                     <option> Apple Macbook Pro</option>
+                     <option>Dell XPS 13</option>
+                     <option>Asus Zenbook</option>
+                     <option>HP Notebook</option>
+                  </select>
+                      <button ng-click="add3()">Add</button>
+             </div>
+    <table>
+   <tr> <h2>Contacts</h2></tr>
+        <tr>
+        <td><h3>Employee ID</h3></td>
+        <td><h3>Employee Name</h3></td>
+        <td><h3>mobile model</h3></td>
+        <td><h3>Laptop model</h3></td>
+        </tr>
+
+    <tr>
+        <td>  <li ng-repeat="contact in contacts"> {{ contact }} </li> </td>
+        <td> <li ng-repeat="detail in details"> {{ detail }} </li></td>
+        <td><li ng-repeat="select in singleSelect"> {{ select }} </li></td>
+        <td><li ng-repeat="select1 in singleSelect1"> {{ select1 }} </li></td>
+    </tr>
+    </table>
+         </div>
+
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
