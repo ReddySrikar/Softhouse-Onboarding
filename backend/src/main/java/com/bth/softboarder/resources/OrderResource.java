@@ -1,8 +1,11 @@
 package com.bth.softboarder.resources;
 
+import com.bth.softboarder.db.InventoryDAO;
 import com.bth.softboarder.db.OrderDAO;
 import com.bth.softboarder.entities.Orders;
-import com.bth.softboarder.entities.Users;
+import com.bth.softboarder.entities.Inventorys;
+import com.bth.softboarder.resources.InventoryResource;
+
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Preconditions;
 
@@ -12,7 +15,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
- * Created by DIVYA on 01-09-2016.
+ * Created by Srikar on 01-09-2016.
  */
 
 @Consumes(MediaType.APPLICATION_JSON)
@@ -21,11 +24,13 @@ import java.util.List;
 
 public class OrderResource {
     private OrderDAO orderDao;
+    private InventoryDAO inventoryDao;
 
     public OrderResource(OrderDAO orderDao) {
         Preconditions.checkNotNull(orderDao);
         this.orderDao = orderDao;
     }
+
 
     @GET
     @Path("/all/")
@@ -40,31 +45,11 @@ public class OrderResource {
     //}
 
     @GET
-    @Path("/{id}")
+    @Path("/select/{id}")
     public Orders getBy(@PathParam("id") int id) {
         return orderDao.getBy(id);
     }
 
-
-    //@GET
-    //@Path("/{emp_id}/{emp_name}/{model}")
-    //public Orders getBy(@PathParam("emp_id") String emp_id, @PathParam("emp_name") String emp_name, @PathParam("model") String model) {
-    // orderDao.getBy(emp_id,emp_name,model);
-    //  Orders orders = orderDao.getBy(emp_id,emp_name,model);
-    //return orders;
-    //}
-
-
-    //@POST
-    //@Path("/{emp_id}/{emp_name}/{model}")
-    //public void insertOrders(Orders orders) { orderDao.insertOrder(orders); }
-
-    /* @Path("/{emp_id}/{emp_name}/{model}")
-    public List<Orders> insertOrders(@PathParam("emp_id") String emp_id, @PathParam("emp_name") String emp_name, @PathParam("model") String model) {
-        orderDao.insertOrder(emp_id,emp_name,model);
-    }
-    //public void insertOrders(Orders orders) { orderDao.insertOrder(orders); }
-*/
 
     @POST
     @Timed
@@ -72,10 +57,16 @@ public class OrderResource {
         if (orders != null) {
             orderDao.insertOrder(orders);
             throw new WebApplicationException(Response.Status.OK);
-
         } else {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
     }
 
+    @PUT
+    @Path("/update/{id}")
+    public void update(@PathParam("id") int id, Orders orders) {
+            orderDao.updateOrder(id);
+            inventoryDao.updateInventory(orders);
+            throw new WebApplicationException(Response.Status.OK);
+    }
 }

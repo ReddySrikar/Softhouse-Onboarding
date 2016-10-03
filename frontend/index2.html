@@ -8,63 +8,66 @@
 
 
 </head>
-<body ng-app="OrdersApp">
+<body ng-app="OnboardApp">
 <div class="container">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12" ng-controller="sendController">
             <legend>Place an Order</legend>
-        </div>
+
         <!-- panel preview -->
-        <div class="col-sm-5">
+        <div class="col-sm-10">
             <h4>Add Order:</h4>
-            <div class="panel panel-default">
-                <div class="panel-body form-horizontal payment-form">
+            <form ng-submit="insert()">
+            <div class="panel panel-default" >
+                <div class="panel-body form-horizontal payment-form" >
                     <div class="form-group">
-                        <label for="concept" class="col-sm-3 control-label">Employee ID:</label>
+                        <label for="empid" class="col-sm-3 control-label">Employee ID:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="concept" name="concept">
+                            <input type="text" class="form-control" id="empid" name="empid" ng-model="neworder.emp_id">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="description" class="col-sm-3 control-label">Employee Name:</label>
+                        <label for="emp_name" class="col-sm-3 control-label">Employee Name:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="description" name="description">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="status" class="col-sm-3 control-label">Phone Model</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="status" name="status">
-                                <option>Iphone 6S</option>
-                                <option>Sony Experia Z2</option>
-                                <option>Samsung Galaxy S7</option>
-                                <option>HTC Desire 820</option>
-                            </select>
+                            <input type="text" class="form-control" id="emp_name" name="emp_name" ng-model="neworder.emp_name">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="status" class="col-sm-3 control-label">Laptop Model</label>
+                        <label for="phone" class="col-sm-3 control-label">Phone Model</label>
                         <div class="col-sm-9">
-                            <select class="form-control" id="status" name="status">
-                                <option>Apple Macbook Pro</option>
-                                <option>Dell XPS 13</option>
-                                <option>Asus Zenbook</option>
-                                <option>HP Notebook</option>
-                            </select>
+                            <div class="col-sm-12" style="height: 220px; border: 2px solid darkgray; text-align: center; margin: auto; border-radius: 20px;"><div class="row"><div class="col-sm-3" style="margin-top: 10%;"><input type="radio"  ng-model="neworder.phmodel" class="form-control" id="phone" value="Iphone 6S"/></div><div class="col-sm-5" style="border: 1px solid darkgrey; height: 218px; text-align: center"><h3>Iphone 6S </h3><br> OS: iOS <br> Processor: Specifications here<br > RAM: Specifications here <br > Memory: Specifications here </div><div class="col-sm-4"><img src="images/apple-iphone-6s.jpg" ></div></div><br /></div>
+                            <div class="col-sm-12" style="height: 220px; border: 2px solid darkgray; text-align: center; margin: auto; border-radius: 20px;margin-top: 30px;"><div class="row"><div class="col-sm-3" style="margin-top: 10%"><input type="radio"  ng-model="neworder.phmodel" class="form-control" id="phone" value="Sony Experia Z2"/></div><div class="col-sm-5" style="border: 1px solid darkgrey; height: 218px; text-align: center"><h3>Sony Experia Z2 </h3><br> OS: iOS <br> Processor: Specifications here<br > RAM: Specifications here <br > Memory: Specifications here </div><div class="col-sm-4"><img src="images/sony-xperia-z2.jpg" ></div></div><br /></div>
+                            <div class="col-sm-12" style="height: 220px; border: 2px solid darkgray; text-align: center; margin: auto; border-radius: 20px;margin-top: 30px;margin-bottom: 30px"><div class="row"><div class="col-sm-3" style="margin-top: 10%"><input type="radio"  ng-model="neworder.phmodel" class="form-control" id="phone" value="Samsung Galaxy S7"/></div><div class="col-sm-5" style="border: 1px solid darkgrey; height: 218px; text-align: center"><h3>Samsung Galaxy S7 </h3><br> OS: iOS <br> Processor: Specifications here<br > RAM: Specifications here <br > Memory: Specifications here </div><div class="col-sm-4"><img src="images/samsung-galaxy-s7.jpg" ></div></div><br /></div>
+                            <div class="col-sm-12" style="height: 220px; border: 2px solid darkgray; text-align: center; margin: auto; border-radius: 20px;"><div class="row"><div class="col-sm-3" style="margin-top: 10%"><input type="radio"  ng-model="neworder.phmodel" class="form-control" id="phone" value="Huawei Honor 7"/></div><div class="col-sm-5" style="border: 1px solid darkgrey; height: 218px; text-align: center"><h3>Huawei Honor 7 </h3><br> OS: iOS <br> Processor: Specifications here<br > RAM: Specifications here <br > Memory: Specifications here </div><div class="col-sm-4"><img src="images/huawei-honor-7r.jpg" ></div></div><br /></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="laptop" class="col-sm-3 control-label">Laptop Model</label>
+                        <div class="col-sm-9">
+                            <div class="col-sm-12" style="height: 220px; border: 2px solid darkgray; text-align: center; margin: auto; border-radius: 20px;"><div class="row"><div class="col-sm-3" style="margin-top: 10%;"><input type="radio"  ng-model="neworder.lapmodel" class="form-control" id="laptop" value="Apple Macbook Pro"/></div><div class="col-sm-5" style="border: 1px solid darkgrey; height: 218px; text-align: center"><h3>Apple Macbook Pro </h3><br> OS: iOS <br> Processor: Specifications here<br > RAM: Specifications here <br > Memory: Specifications here </div><div class="col-sm-4"><img src="images/Apple-Macbook-Pro.jpeg" style="height: 160px; width: 170px;"></div></div><br /></div>
+                            <div class="col-sm-12" style="height: 220px; border: 2px solid darkgray; text-align: center; margin: auto; border-radius: 20px;margin-top: 30px;"><div class="row"><div class="col-sm-3" style="margin-top: 10%"><input type="radio"  ng-model="neworder.lapmodel" class="form-control" id="laptop" value="Dell XPS 13"/></div><div class="col-sm-5" style="border: 1px solid darkgrey; height: 218px; text-align: center"><h3>Dell XPS 13 </h3><br> OS: iOS <br> Processor: Specifications here<br > RAM: Specifications here <br > Memory: Specifications here </div><div class="col-sm-4"><img src="images/Dell-XPS-13.jpeg" style="height: 160px; width: 170px;"></div></div><br /></div>
+                            <div class="col-sm-12" style="height: 220px; border: 2px solid darkgray; text-align: center; margin: auto; border-radius: 20px;margin-top: 30px;margin-bottom: 30px"><div class="row"><div class="col-sm-3" style="margin-top: 10%"><input type="radio"  ng-model="neworder.lapmodel" class="form-control" id="laptop" value="Asus Zenbook"/></div><div class="col-sm-5" style="border: 1px solid darkgrey; height: 218px; text-align: center"><h3>Asus Zenbook </h3><br> OS: iOS <br> Processor: Specifications here<br > RAM: Specifications here <br > Memory: Specifications here </div><div class="col-sm-4"><img src="images/Asus-Zenbook-Pro.jpeg" style="height: 160px; width: 170px;"></div></div><br /></div>
+                            <div class="col-sm-12" style="height: 220px; border: 2px solid darkgray; text-align: center; margin: auto; border-radius: 20px;"><div class="row"><div class="col-sm-3" style="margin-top: 10%"><input type="radio"  ng-model="neworder.lapmodel" class="form-control" id="laptop" value="HP Notebook"/></div><div class="col-sm-5" style="border: 1px solid darkgrey; height: 218px; text-align: center"><h3>HP Notebook </h3><br> OS: iOS <br> Processor: Specifications here<br > RAM: Specifications here <br > Memory: Specifications here </div><div class="col-sm-4"><img src="images/HP-Notebook.jpg" style="height: 160px; width: 170px;"></div></div><br /></div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xs-12">
                             <hr style="border:1px dashed #dddddd;">
-                            <button type="button" class="btn btn-primary btn-block">Submit all and finish</button>
+                            <input type="button" ng-click="reset()" class="btn btn-primary btn-block" value="RESET"></input><br><br>
+
+                            <input type="submit" class="btn btn-primary btn-block" value="SUBMIT"></input>
                         </div>
                     </div>
 
                 </div>
+                </div>
             </div>
+            </form>
+            <pre>orderplaced = {{neworder}}</pre>
+
+
         </div> <!-- / panel preview -->
 
         <div class="container">
@@ -82,7 +85,7 @@
                             <th><input type="checkbox" id="checkall" /></th>
                             <th>Employee ID</th>
                             <th>Employee Name</th>
-                            <th>Phone Model/th>
+                            <th>Phone Model</th>
                             <th>Laptop Model</th>
                             <th>Accept</th>
                             <th>Reject</th>
@@ -91,10 +94,10 @@
 
                             <tr class="orders" ng-repeat="ord in orderlist">
                                 <td><input type="checkbox" class="checkthis" /></td>
-                                <td>{{ ord.id}}</td>
-                                <td>{{ ord.username }}</td>
-                                <td>{{ ord.password }}</td>
-                                <td>{{ ord.confirm_password }}</td>
+                                <td>{{ ord.emp_id}}</td>
+                                <td>{{ ord.emp_name }}</td>
+                                <td>{{ ord.phmodel }}</td>
+                                <td>{{ ord.lapmodel }}</td>
                                 <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
                                 <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
                             </tr>
@@ -185,5 +188,6 @@
 
 <!-- Services -->
 <script src="js/services/showorder.js"></script>
+<script src="js/services/users/user.service.js"></script>
 
 </html>

@@ -11,7 +11,7 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 import java.util.List;
 
 /**
- * Created by DIVYA on 01-09-2016.
+ * Created by Srikar on 01-09-2016.
  */
 
 @RegisterMapperFactory(BeanMapperFactory.class)
@@ -31,6 +31,9 @@ public interface OrderDAO {
 
     //@SqlQuery("select id,emp_id,emp_name,model from orders;")
     //public Orders getBy(String emp_id, String emp_name, String model);
+
+    @SqlUpdate("UPDATE orders SET flag=1 WHERE id = :id;")
+    public void updateOrder(@Bind("id") int id);
 
     @SqlQuery("select * from orders;")
     public List<Orders> getBy();

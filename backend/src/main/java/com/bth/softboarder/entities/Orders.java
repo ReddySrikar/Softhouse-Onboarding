@@ -1,64 +1,20 @@
 package com.bth.softboarder.entities;
 
 /**
- * Created by DIVYA on 01-09-2016.
+ * Created by Srikar on 01-09-2016.
  */
 public class Orders {
 
     int id;
     String emp_id;
     String emp_name;
-    String model;
-
-    //int flag;
+    String lapmodel;
+    String phmodel;
+    int flag;
 
     public Orders() {
         super();
     }
-
-    public Orders(int id) {
-        super();
-        this.id = id;
-    }
-
-    public Orders(int id, String emp_id) {
-        super();
-        this.id = id;
-        this.emp_id = emp_id;
-    }
-
-    public Orders(int id, String emp_id, String emp_name) {
-        super();
-        this.id = id;
-        this.emp_id = emp_id;
-        this.emp_name = emp_name;
-    }
-
-    public Orders(int id, String emp_id, String emp_name, String model) {
-        super();
-        this.id = id;
-        this.emp_id = emp_id;
-        this.emp_name = emp_name;
-        this.model = model;
-    }
-
-    public Orders(String emp_id, String emp_name, String model) {
-        super();
-        this.emp_id = emp_id;
-        this.emp_name = emp_name;
-        this.model = model;
-    }
-
-    /**
-     * public Users(int id, String emp_id, String emp_name, String model, int flag) {
-     super();
-     this.id = id;
-     this.emp_id = emp_id;
-     this.emp_name = emp_name;
-     this.model = model;
-     this.flag = flag;
-     }
-     **/
 
     public int getId() {
         return id;
@@ -84,12 +40,28 @@ public class Orders {
         this.emp_name = emp_name;
     }
 
-    public String getModel() {
-        return model;
+    public String getLapmodel() {
+        return lapmodel;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setLapmodel(String lapmodel) {
+        this.lapmodel = lapmodel;
+    }
+
+    public String getPhmodel() {
+        return phmodel;
+    }
+
+    public void setPhmodel(String phmodel) {
+        this.phmodel = phmodel;
+    }
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
     }
 
     public String toString() {
@@ -97,8 +69,9 @@ public class Orders {
                 "id=" + id +
                 ", emp_id='" +  emp_id+ '\'' +
                 ", emp_name='" + emp_name + '\'' +
-                ", model='" + model + '\'' +
+                ", phmodel='" + phmodel + '\'' +
+                ", lapmodel='" + lapmodel + '\'' +
+                ", flag='" + flag + '\'' +
                 '}';
     }
-
 }

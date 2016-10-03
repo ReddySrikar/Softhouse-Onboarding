@@ -1,7 +1,7 @@
 package com.bth.softboarder.entities;
 
 /**
- * Created by DIVYA on 16-09-2016.
+ * Created by Srikar on 16-09-2016.
  */
 public class Inventorys {
 
@@ -14,31 +14,6 @@ public class Inventorys {
         super();
     }
 
-    public Inventorys(int id) {
-        super();
-        this.id = id;
-    }
-
-    public Inventorys(int id, String type) {
-        super();
-        this.id = id;
-        this.type = type;
-    }
-
-    public Inventorys(int id, String type, String model) {
-        super();
-        this.id = id;
-        this.type = type;
-        this.model = model;
-    }
-
-    public Inventorys(int id, String type, String model, int quantity) {
-        super();
-        this.id = id;
-        this.type = type;
-        this.model = model;
-        this.quantity = quantity;
-    }
 
     public int getId() {
         return id;
