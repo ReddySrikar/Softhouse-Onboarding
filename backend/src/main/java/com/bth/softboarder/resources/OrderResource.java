@@ -33,8 +33,6 @@ public class OrderResource {
     }
 
 
-
-
     @GET
     @Path("/all/")
     public List<Orders> getBy() {
@@ -72,4 +70,14 @@ public class OrderResource {
         inventoryDao.updateInventory(orders);
         throw new WebApplicationException(Response.Status.OK);
     }
+
+    @DELETE
+    @Path("/delete/{id}")
+    public void deleteOrder(@PathParam("id") int id) {
+        orderDao.deleteOrderById(id);
+        throw new WebApplicationException(Response.Status.OK);
+
+    }
+
+
 }

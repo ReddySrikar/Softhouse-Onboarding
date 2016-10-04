@@ -37,5 +37,11 @@ public interface OrderDAO {
 
     @SqlQuery("select * from orders;")
     public List<Orders> getBy();
+
+
+    @SqlUpdate("UPDATE orders SET flag=2 WHERE id = :id;")
+    public void deleteOrderById(@Bind("id") int id);
+
+
 }
 
