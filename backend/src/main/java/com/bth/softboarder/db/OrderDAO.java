@@ -23,8 +23,8 @@ public interface OrderDAO {
     @SqlUpdate("insert into orders (emp_id,emp_name,phmodel,lapmodel) values (:emp_id,:emp_name,:phmodel,:lapmodel);")
     public void insertOrder(@BindBean Orders orders);
 
-    @SqlQuery("SELECT * FROM orders WHERE id = :id;")
-    public Orders getBy(@Bind("id") int id);
+    @SqlQuery("SELECT * FROM orders WHERE emp_id = :emp_id;")
+    public Orders getBy(@Bind("emp_id") int emp_id);
 
     //@SqlQuery("SELECT * FROM orders WHERE emp_name = :emp_name;")
     //public Orders getBy(@Bind("emp_name") String emp_name);
@@ -32,16 +32,13 @@ public interface OrderDAO {
     //@SqlQuery("select id,emp_id,emp_name,model from orders;")
     //public Orders getBy(String emp_id, String emp_name, String model);
 
-    @SqlUpdate("UPDATE orders SET flag=1 WHERE id = :id;")
-    public void updateOrder(@Bind("id") int id);
-
     @SqlQuery("select * from orders;")
     public List<Orders> getBy();
 
+    @SqlUpdate("UPDATE orders SET flag=1 WHERE emp_id = :emp_id;")
+    public void updateOrder(@Bind("emp_id") int emp_id);
 
-    @SqlUpdate("UPDATE orders SET flag=2 WHERE id = :id;")
-    public void deleteOrderById(@Bind("id") int id);
-
-
+    @SqlUpdate("UPDATE orders SET flag=2 WHERE emp_id = :emp_id;")
+    public void deleteOrderById(@Bind("emp_id") int emp_id);
 }
 

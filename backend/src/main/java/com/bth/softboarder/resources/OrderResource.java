@@ -64,20 +64,18 @@ public class OrderResource {
     }
 
     @PUT
-    @Path("/update/{id}")
-    public void update(@PathParam("id") int id, Orders orders) {
-        orderDao.updateOrder(id);
+    @Path("/update/{emp_id}")
+    public void update(@PathParam("emp_id") int emp_id, Orders orders) {
+        orderDao.updateOrder(emp_id);
         inventoryDao.updateInventory(orders);
         throw new WebApplicationException(Response.Status.OK);
     }
 
-    @DELETE
-    @Path("/delete/{id}")
-    public void deleteOrder(@PathParam("id") int id) {
-        orderDao.deleteOrderById(id);
+    @PUT
+    @Path("/delete/{emp_id}")
+    public void deleteOrder(@PathParam("emp_id") int emp_id) {
+        orderDao.deleteOrderById(emp_id);
         throw new WebApplicationException(Response.Status.OK);
 
     }
-
-
 }
