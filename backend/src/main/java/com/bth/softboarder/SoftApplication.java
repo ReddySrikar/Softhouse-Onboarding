@@ -84,7 +84,7 @@ public class SoftApplication extends Application<SoftConfiguration> {
 
         //environment.jersey().register(onboarderResource);
         environment.jersey().register(new UserResource(userDAO));
-        environment.jersey().register(new OrderResource(orderDAO));
+        environment.jersey().register(new OrderResource(orderDAO, inventoryDAO));
         environment.jersey().register(new InventoryResource(inventoryDAO));
         environment.jersey().register(new AdminResource(adminDAO));
        // environment.jersey().register(new AdminResource(adminDAO));

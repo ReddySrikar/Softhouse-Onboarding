@@ -2,7 +2,6 @@ package com.bth.softboarder.db;
 
 import com.bth.softboarder.entities.Inventorys;
 import com.bth.softboarder.entities.Orders;
-import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.BindBean;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;

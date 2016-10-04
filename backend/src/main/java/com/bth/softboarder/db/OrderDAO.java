@@ -20,7 +20,7 @@ public interface OrderDAO {
     @SqlUpdate("create table if not exists orders (id int primary key auto_increment, emp_id varchar(255), emp_name varchar(255), phmodel varchar (255), lapmodel varchar (255),flag int(11))")
     public void createOrdersTable();
 
-    @SqlUpdate("insert into orders (emp_id,emp_name,model) values (:emp_id,:emp_name,:model);")
+    @SqlUpdate("insert into orders (emp_id,emp_name,phmodel,lapmodel) values (:emp_id,:emp_name,:phmodel,:lapmodel);")
     public void insertOrder(@BindBean Orders orders);
 
     @SqlQuery("SELECT * FROM orders WHERE id = :id;")

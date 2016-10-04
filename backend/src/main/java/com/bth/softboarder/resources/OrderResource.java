@@ -26,10 +26,13 @@ public class OrderResource {
     private OrderDAO orderDao;
     private InventoryDAO inventoryDao;
 
-    public OrderResource(OrderDAO orderDao) {
+    public OrderResource(OrderDAO orderDao, InventoryDAO inventoryDao) {
         Preconditions.checkNotNull(orderDao);
         this.orderDao = orderDao;
+        this.inventoryDao = inventoryDao;
     }
+
+
 
 
     @GET
@@ -65,8 +68,8 @@ public class OrderResource {
     @PUT
     @Path("/update/{id}")
     public void update(@PathParam("id") int id, Orders orders) {
-            orderDao.updateOrder(id);
-            inventoryDao.updateInventory(orders);
-            throw new WebApplicationException(Response.Status.OK);
+        orderDao.updateOrder(id);
+        inventoryDao.updateInventory(orders);
+        throw new WebApplicationException(Response.Status.OK);
     }
 }
