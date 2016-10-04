@@ -5,3 +5,7 @@
 "4","Gopi Krishna","gopi.krishna@gmail.com","Huawei Honor 6","Dell Inspiron","user"
 "5","Sriram Varma","varma.sriram@gmail.com","varma#123","varma#123","user"
 "6","Tommy","tommy@hi.com","Nokia Lumia","Dell XPS","user"
+"7","John Mogensen","john@softhouse.ab","john123","john123",
+"39","John Mogensen1","john1@softhouse.ab","john1231","john1231",
+"40","Srikar Reddy","srikar.reddy@gmail.com","Asus Zenphone","Asus Zenbook",
+"71","Taylor Raymond","taylor1@softhouse.ab","taytay1231","tay1231",
