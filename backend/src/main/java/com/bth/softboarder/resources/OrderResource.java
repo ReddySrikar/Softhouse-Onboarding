@@ -35,9 +35,11 @@ public class OrderResource {
 
     @GET
     @Path("/all/")
-    public List<Orders> getBy() {
-        return orderDao.getBy();
-    }
+    public List<Orders> getBy() { return orderDao.getBy(); }
+
+    @GET
+    @Path("/status/{flag}")
+    public List<Orders> getStatus(@PathParam("flag") int flag) { return orderDao.getStatus(flag); }
 
     //@POST
     //@Path("/{uname}")
@@ -46,9 +48,9 @@ public class OrderResource {
     //}
 
     @GET
-    @Path("/select/{id}")
-    public Orders getBy(@PathParam("id") int id) {
-        return orderDao.getBy(id);
+    @Path("/select/{emp_id}")
+    public List<Orders> getBy(@PathParam("emp_id") int emp_id) {
+        return orderDao.getBy(emp_id);
     }
 
 

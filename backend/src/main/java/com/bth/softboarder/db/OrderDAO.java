@@ -24,7 +24,7 @@ public interface OrderDAO {
     public void insertOrder(@BindBean Orders orders);
 
     @SqlQuery("SELECT * FROM orders WHERE emp_id = :emp_id;")
-    public Orders getBy(@Bind("emp_id") int emp_id);
+    public List<Orders> getBy(@Bind("emp_id") int emp_id);
 
     //@SqlQuery("SELECT * FROM orders WHERE emp_name = :emp_name;")
     //public Orders getBy(@Bind("emp_name") String emp_name);
@@ -32,8 +32,13 @@ public interface OrderDAO {
     //@SqlQuery("select id,emp_id,emp_name,model from orders;")
     //public Orders getBy(String emp_id, String emp_name, String model);
 
-    @SqlQuery("select * from orders;")
+    @SqlQuery("select * from orders ;")
     public List<Orders> getBy();
+
+
+    @SqlQuery("select * from orders WHERE flag = :flag ;")
+    public List<Orders> getStatus(@Bind("flag") int flag);
+
 
     @SqlUpdate("UPDATE orders SET flag=1 WHERE emp_id = :emp_id;")
     public void updateOrder(@Bind("emp_id") int emp_id);
